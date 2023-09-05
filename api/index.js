@@ -1,10 +1,22 @@
 require("dotenv").config();
 
 const express = require("express");
-const ConnectDb = require("./config/dbConnection");
+const ConnectDb = require("./database/dbConnection");
+const expressApp = require("./express-app");
 
 const startServer = async () => {
   const app = express();
   await ConnectDb();
-  await e;
+  await expressApp(app);
+
+  app
+    .listen(3000, () => {
+      console.log("listening on port 3000");
+    })
+    .on("error", (err) => {
+      console.log("error", err);
+      process.exit(1);
+    });
 };
+
+startServer();

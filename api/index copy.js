@@ -6,11 +6,11 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
-const User = require("./models/user");
-const Post = require("./models/post");
+const User = require("./database/models/user");
+const Post = require("./database/models/post");
 const { createRandomUser } = require("./seed");
 const { faker } = require("@faker-js/faker");
-const ConnectDb = require("./config/dbConnection");
+const ConnectDb = require("./database/dbConnection");
 const port = 3000;
 ConnectDb();
 
